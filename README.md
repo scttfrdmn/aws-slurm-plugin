@@ -2,7 +2,7 @@
 
 A plugin that enables Slurm to dynamically create and terminate AWS EC2 instances based on workload demands.
 
-> This project is forked from the [AWS Plugin for Slurm](https://github.com/aws-samples/aws-plugin-for-slurm/tree/plugin-v2) repository maintained by AWS Samples.
+> This project is forked from the [AWS Plugin for Slurm](https://github.com/aws-samples/aws-plugin-for-slurm/tree/plugin-v2) repository maintained by AWS Samples. This version includes enhanced documentation for on-premises to cloud bursting and dual accounting solutions.
 
 ## Table of Contents
 
@@ -14,6 +14,7 @@ A plugin that enables Slurm to dynamically create and terminate AWS EC2 instance
 - [Usage Guide](#usage)
 - [Advanced Configuration](#advanced)
 - [Troubleshooting](#troubleshooting)
+- [Additional Resources](#additional-resources)
 
 <a name="introduction"/>
 
@@ -153,11 +154,11 @@ Create EC2 launch templates that specify:
 2. **Copy Plugin Files**:
    ```bash
    cd /path/to/slurm/etc/aws
-   wget -q https://github.com/aws-samples/aws-plugin-for-slurm/raw/plugin-v2/common.py
-   wget -q https://github.com/aws-samples/aws-plugin-for-slurm/raw/plugin-v2/resume.py
-   wget -q https://github.com/aws-samples/aws-plugin-for-slurm/raw/plugin-v2/suspend.py
-   wget -q https://github.com/aws-samples/aws-plugin-for-slurm/raw/plugin-v2/generate_conf.py
-   wget -q https://github.com/aws-samples/aws-plugin-for-slurm/raw/plugin-v2/change_state.py 
+   wget -q https://github.com/scttfrdmn/aws-slurm-plugin/raw/main/common.py
+   wget -q https://github.com/scttfrdmn/aws-slurm-plugin/raw/main/resume.py
+   wget -q https://github.com/scttfrdmn/aws-slurm-plugin/raw/main/suspend.py
+   wget -q https://github.com/scttfrdmn/aws-slurm-plugin/raw/main/generate_conf.py
+   wget -q https://github.com/scttfrdmn/aws-slurm-plugin/raw/main/change_state.py
    chmod +x *.py
    ```
 
@@ -495,3 +496,16 @@ Increase verbosity by setting LogLevel to "DEBUG" for troubleshooting.
 5. Manually run resume/suspend to test functionality
 
 For more assistance, consult the Slurm documentation and AWS EC2 troubleshooting resources.
+
+<a name="additional-resources"/>
+
+## Additional Resources
+
+This repository includes additional documentation on advanced topics:
+
+- [On-Premises to Cloud Bursting Considerations](ON-PREM-TO-CLOUD-CONSIDERATIONS.md) - Detailed analysis of considerations for true on-premises to cloud bursting
+- [On-Premises to Cloud Bursting Tutorial Outline](ON-PREM-TO-CLOUD-TUTORIAL-OUTLINE.md) - Step-by-step tutorial outline for implementing on-prem to AWS bursting
+- [Dual Accounting with Existing Slurm](DUAL-ACCOUNTING-EXISTING-SLURM.md) - Implementation guide for tracking separate accounting units using existing Slurm capabilities
+- [Dual Accounting Slurm Enhancement Proposal](DUAL-ACCOUNTING-SLURM-ENHANCEMENT.md) - Technical proposal for enhancing Slurm to support multiple accounting domains
+
+These resources provide more in-depth guidance for implementing advanced configurations beyond the basic AWS-to-AWS setup.
